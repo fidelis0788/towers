@@ -1,60 +1,18 @@
 # towers
+  1. FUNCTION MOVEPIECE
+   The first thing I will write a function to move stack from start stack to the end stack
+   I will use .pop() method to remove the last element from my start stack and returns that element so that I can put the returned element into an end stack using .push() method
 
-let stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
-};
-1. I am using recursion to solve the tower of hanoi 
-Recursion is calling the same action from that action. 
+  2. I will nedd another function that detect the illegal moves 
+     Illegal Moves - Prevents larger blocks from stacking on smaller blocks and also prevent the user from moving stacks from an empty array
+      1. prevent the user from moving stacks from an empty array
+     using if statement I will state: if  the length of stack[end] is equal to 0 it means the stack[start] is not equal to 0 so the user can  move stack from start to end because start is not empty
+      2. Prevents larger blocks from stacking on smaller blocks
+using .slice(-1) method I can acces the position of element in start stack -1 and the position of elememnt in the end stack -1 and then compare the positions, if position -1 at start stack is greater than postion -1 at end stack return true else return false
 
-2. I will be using   a for beginning stack where i have all my discs
-3. b for auxiliary stacks before moving to the c stack
-4. c for the ending stack where all the discs will be placed c the game
-5. disc for the number of disks i am starting with.
+3. function the check and notify the winner: using if statmenet I will check if the user has successifully moved the all stacks from start to the end by checking the length of the end stack which can be  a or b , so if the length of  end stack  is equal to 4 return true else return false
+and the console.log('you won ').
 
- from the beginning I have the function below :
- <function tower(disc, src, aux, end)
-{
-
-}
-
-6. This is the skeleton of my  solution. i am  taking  the total discs number as an argument. Then I need to pass a, b  place, and the c to show the map which I will use to complete the job.
-
-  I will  need to find a terminal state.  where I am  not going to call this function anymore.
-
-7. IF disc is equal 1 it will be the terminal state because I can move one disc to  c  and I am done
- 
-move disk from a to c
-
- 8. I will  divide the stack of discs in two parts. The largest disk (nth disc) is in one part and all other (n-1) disks are in the second part. Then I call the method two times for -(n-1).
-
-
-
- 9. IF disk is equal 1, THEN
-      move disc from a to c
-   ELSE
-      <tower(disc - 1, a, c, b)   // Step 1
-      <move disk from a to c        // Step 2
-      <tower(disk - 1, b, a, c)   // Step 3
-10. the expected output will be 
-a to b
-a to c
-b to c
-a to b
-c to a
-c to b
-a to b
-a to c
-b to c
-b to a
-c to a
-b to c
-a to b
-a to c
-b to c
-11. check win: using if statement I will be able to check for win as follows:
-
-if stacks.a.length and stacks.b.length are equal to 0 : you win the game
-
-12. Illegal move
+ 4. the fist test will be to check if the user can move the stacks
+    the second will be to check if illegal move function works
+    the third test will be checking if the function checkWin works
